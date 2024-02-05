@@ -9,15 +9,19 @@
     <script>
         // Function to check if the app is installed
         function isAppInstalled() {
-            // Replace 'mycloudwallet://' with your app's scheme
-            window.location.href = 'mycloudwallet://';
-
-            // Timeout to handle when the app is not installed
-            setTimeout(function() {
-                alert('Please install the app..');
-                // Redirect to the App Store
-                window.location.href = 'https://apps.apple.com/us/app/facebook/id284882215';
-            }, 1000);
+            try {
+                // Replace 'mycloudwallet://' with your app's scheme
+                window.location.href = 'mycloudwallet://';
+    
+                // Timeout to handle when the app is not installed
+                setTimeout(function() {
+                    alert('Please install the app..');
+                    // Redirect to the App Store
+                    window.location.href = 'https://apps.apple.com/us/app/facebook/id284882215';
+                }, 1000);
+            } catch (err) {
+                console.error("Error:", err)
+            }
         }
 
         // Call the function when the page loads
